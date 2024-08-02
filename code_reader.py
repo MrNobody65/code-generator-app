@@ -13,5 +13,5 @@ def code_reader_func(file_name):
 code_reader = FunctionTool.from_defaults(
     fn=code_reader_func,
     name="code_reader",
-    description="this can read the content of code file. Use this to read the content of code file"
+    description="This reads the content of code files. Use this to read the content of code files"
 )
