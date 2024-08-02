@@ -30,7 +30,7 @@ if 'agent' not in st.session_state:
 # Load large objects 
 @st.cache_resource(show_spinner=False)
 def getParser():
-    return LlamaParse(result_type="markdown")
+    return LlamaParse(result_type="markdown", verbose=False)
 
 @st.cache_resource(show_spinner=False)
 def getEmbeddingModel():
@@ -98,7 +98,7 @@ def createAgent(tools):
         st.session_state['code_reader_enable'] = True
     else:
         st.session_state['code_reader_enable'] = False
-    st.session_state['agent'] = ReActAgent.from_tools(tools=tools, llm=code_llm, verbose=True, context=context)
+    st.session_state['agent'] = ReActAgent.from_tools(tools=tools, llm=code_llm, context=context)
 
 with st.expander(label='Create agent'):
     tools = st.multiselect(label="Choose tools",
@@ -106,6 +106,7 @@ with st.expander(label='Create agent'):
                            default=[code_reader],
                            format_func=formatTools,
                            help="Choose tools to create your agent, code_reader tool is selected by default. You need at least one tool to create agent.")
+
     if tools != []:
         st.button(label="Create agent", on_click=createAgent, args=(tools, ))
 
