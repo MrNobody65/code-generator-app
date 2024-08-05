@@ -56,6 +56,11 @@ This is a simple project that allows users to create their own tools and **ReAct
 
 4. Create `.env` file based on `.env.example` and enter your API key from [LlamaCloud](https://cloud.llamaindex.ai/api-key)
 
+5. Run the application
+    ```sh
+    streamlit run app.py
+    ```
+
 <!-- MARKDOWN LINKS & IMAGES -->
 [Ollama-logo]: https://img.shields.io/badge/Ollama-FFFFFF?style=for-the-badge
 [Ollama-url]: https://github.com/ollama/ollama
